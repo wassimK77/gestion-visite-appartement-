@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Détail de la Maison</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .photo {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Détail de la Maison</h1>
+        <div class="photo">
+            <img src="/miniphp/public/images/photo1.jpg" class="d-block w-100" alt="photo1">
+        </div>
+        <div class="photo">
+            <img src="/miniphp/public/images/photo2.jpg" class="d-block w-100" alt="photo2">
+        </div>
+        <div class="photo">
+            <img src="/miniphp/public/images/photo3.jpg" class="d-block w-100" alt="photo3">
+        </div>
+        <br>
+        <p>Il est situé dans le pays suivant :</p>
+        <p>Il est situé dans <?php echo $this->maison->PAYS; ?></p>
+        <p>Dans la région de <?php echo $this->maison->REGION; ?></p>
+        <p>Dans la ville de <?php echo $this->maison->VILLE; ?></p>
+        <p>À l'adresse <?php echo $this->maison->RUE; ?></p>
+        <p>Dans le <?php echo $this->maison->ARRONDISSE; ?>ème arrondissement</p>
+        <p>Au <?php echo $this->maison->ETAGE; ?>ème étage</p>
+        <p>Le prix de la location est de <?php echo $this->maison->PRIX_LOC; ?>€</p>
+        <p>Les charges sont de <?php echo $this->maison->PRIX_CHARG; ?>€</p>
+        <p>Le préavis est de <?php echo $this->maison->PREAVIS; ?> mois</p>
+        <p>La date de disponibilité est le <?php echo $this->maison->DATE_LIBRE; ?></p>
+        <p>Le numéro du propriétaire est le <?php echo $this->maison->NUMEROPROP; ?></p>
+        <?php if($this->maison->JARDIN == 1) : ?>
+            <p>Il y a un jardin</p>
+        <?php else : ?>
+            <p>Il n'y a pas de jardin</p>
+        <?php endif; ?>
+        <p>La superficie est de <?php echo $this->maison->SUPERFICIE; ?>m²</p>
+        <?php if($this->maison->PISCINE == 1) : ?>
+            <p>Il y a une piscine</p>
+        <?php else : ?>
+            <p>Il n'y a pas de piscine</p>
+        <?php endif; ?>
+        <?php if($this->maison->GARAGE == 1) : ?>
+            <p>Il y a un garage</p>
+        <?php else : ?>
+            <p>Il n'y a pas de garage</p>
+        <?php endif; ?>
+        <br>
+        <p>Vous pouvez faire une demande de location ci-dessous :</p>
+        <a href="<?php echo Util_Route::url("demande", "maisons", ["id"=>(string)$this->maison->NUM_MAISON]); ?>">
+            <button id="btn">Demande de location</button>
+        </a>
+    </div>
+</body>
+</html>

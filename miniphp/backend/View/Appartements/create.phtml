@@ -1,0 +1,8 @@
+<?php if (isset($this->error)) : ?>
+  <p class="error">Une erreur c'est produites</p>
+<?php else :?>
+  <p>Vôtre appartement à bien été mis en location !</p>
+<?php endif; ?>
+<h2>Vous pouvez consulter la liste des appartements en cliquant <a href="<?php echo Util_Route::url("list", "Appartements"); ?>">ici</a></h2>
+<br></br>
+<h2>Vous pouvez retourner à la page d'accueil en cliquant <a href="<?php echo Util_Route::url("index", "Home"); ?>">ici</a></h2>

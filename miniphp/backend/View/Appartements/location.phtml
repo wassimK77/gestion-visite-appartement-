@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulaire de Location</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px;
+        }
+        h1 {
+            color: #343a40;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            color: #495057;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        input[type="text"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenue</h1>
+        <form action="<?php echo Util_Route::url("create"); ?>" method="POST">
+            <label for="RUE">Rue:</label>
+            <input type="text" name="RUE" id="RUE" required>
+
+            <label for="ARRONDISSE">Arrondissement:</label>
+            <input type="text" name="ARRONDISSE" id="ARRONDISSE" required>
+
+            <label for="ETAGE">Étage:</label>
+            <input type="text" name="ETAGE" id="ETAGE" required>
+
+            <label for="PRIX_LOC">Prix de la location /mois:</label>
+            <input type="text" name="PRIX_LOC" id="PRIX_LOC" required>
+
+            <label for="PRIX_CHARG">Prix des charges /mois:</label>
+            <input type="text" name="PRIX_CHARG" id="PRIX_CHARG" required>
+
+            <label for="ASCENSEUR">Ascenseur:</label>
+            <input type="text" name="ASCENSEUR" id="ASCENSEUR" required>
+
+            <label for="PREAVIS">Préavis:</label>
+            <input type="text" name="PREAVIS" id="PREAVIS" required>
+
+            <label for="DATE_LIBRE">Date de la mise en location:</label>
+            <input type="date" name="DATE_LIBRE" id="DATE_LIBRE" required>
+
+            <label for="NUMEROPROP">Votre numéro de téléphone:</label>
+            <input type="text" name="NUMEROPROP" id="NUMEROPROP" required>
+
+            <label for="PAYS">Pays:</label>
+            <input type="text" name="PAYS" id="PAYS" required>
+
+            <label for="REGION">Région:</label>
+            <input type="text" name="REGION" id="REGION" required>
+
+            <label for="VILLE">Ville:</label>
+            <input type="text" name="VILLE" id="VILLE" required>
+
+            <input type="submit" value="Soumettre">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?php $session = new Util_Session(); ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="/miniphp/public/css/main.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Accueil</h1>
+        <br>
+        <?php if ($session->has('login')) : ?>
+            <p>Bienvenue <?php echo $this->escape($session->get('login')); ?></p>
+        <?php else : ?>
+            <p>Bienvenue, veuillez vous 
+                <a href="<?php echo Util_Route::url('new', 'User'); ?>">inscrire</a> 
+                ou vous 
+                <a href="<?php echo Util_Route::url('login', 'User'); ?>">connecter</a>
+            </p>
+        <?php endif ; ?>
+    </div>
+</body>
+</html>

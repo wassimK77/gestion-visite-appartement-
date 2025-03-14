@@ -1,0 +1,1 @@
+<h1>Default error page</h1>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Appartements</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        li a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        li a:hover {
+            text-decoration: underline;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Appartements</h1>
+        <?php if (count($this->appartements) > 0) : ?>
+            <ul>
+                <?php foreach ($this->appartements as $appartement) : ?>
+                    <li>
+                        <div>
+                            <strong>Adresse :</strong> <?php echo $appartement->RUE; ?><br>
+                            <strong>Pays :</strong> <?php echo $appartement->PAYS; ?><br>
+                            <strong>Ville :</strong> <?php echo $appartement->VILLE; ?>
+                        </div>
+                        <a href="<?php echo Util_Route::url("detail", "Appartements", ["id" => (string)$appartement->NUMAPPART]); ?>">
+                            <button>Détail</button>
+                        </a>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        <?php else : ?>
+            <p>Aucun appartement trouvé.</p>
+        <?php endif; ?>
+    </div>
+</body>
+</html>

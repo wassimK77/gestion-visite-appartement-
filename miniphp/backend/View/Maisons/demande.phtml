@@ -1,0 +1,34 @@
+<h1>vous souhaitez devenir locataire de cet maison ?</h1>
+<br></br>
+<p>remplissez le formulaire ci dessous :</p>
+<form action="<?php echo Util_Route::url("demande", "appartements", ["id"=>(string)$this->appartement->NUMAPPART]); ?>" method="POST">
+  <input type="text" name="nom" placeholder="nom">
+  <br></br>
+  <input type="text" name="prenom" placeholder="prenom">
+    <br></br>
+  <input type="text" name="adresse" placeholder="adresse">
+    <br></br>
+  <input type="text" name="ville" placeholder="ville">
+    <br></br>
+  <input type="text" name="codepostal" placeholder="code postal">
+    <br></br>
+  <input type="text" name="tel" placeholder="tel">
+    <br></br>
+  <input type="text" name="mail" placeholder="mail">
+    <br></br>
+  <input type="text" name="profession" placeholder="profession">
+    <br></br>
+  <input type="text" name="revenu" placeholder="revenu">
+    <br></br>
+  <input type="text" name="caution" placeholder="caution">
+    <br></br>
+  <input type="text" name="garant" placeholder="garant">
+    <br></br>
+  <input type="text" name="date" placeholder="date">
+    <br></br>
+  <input type="text" name="TYPE_DEM" placeholder="type de demande">
+    <br></br>
+    <p>date de vôtre demande de location</p>
+  <input type="date" name="DATE_LIMITE" placeholder="date limite">
+
+  <button>envoyer</button>

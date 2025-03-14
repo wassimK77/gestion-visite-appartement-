@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Création de compte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Création de compte</h1>
+        <?php if ($this->error == "login") : ?>
+            <p>Le nom d'utilisateur existe déjà</p>
+        <?php endif; ?>
+        <?php if ($this->error == "mdp") : ?>
+            <p>Le mot de passe doit contenir au moins 8 caractères</p>
+        <?php endif; ?>
+        <form action="<?php echo Util_Route::url("create"); ?>" method="POST">
+            <input type="text" name="nom" placeholder="Nom" required>
+            <input type="text" name="prenom" placeholder="Prénom" required>
+            <input type="text" name="adresse" placeholder="Adresse" required>
+            <input type="text" name="codePostal" placeholder="Code postal" required>
+            <input type="text" name="tel" placeholder="Téléphone" required>
+            <input type="text" name="login" placeholder="Nom d'utilisateur" value="<?php echo $this->login; ?>" required>
+            <input type="password" name="mdp" placeholder="Mot de passe" required>
+            <button>Créer</button>
+        </form>
+        <p>Déjà inscrit ? <a href="<?php echo Util_Route::url('login', 'User'); ?>">Connectez-vous ici</a></p>
+    </div>
+</body>
+</html>

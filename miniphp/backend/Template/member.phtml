@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miniphp</title>
+    <link rel="stylesheet" href="<?= conf('baseUrl'); ?>css/main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <img src="<?= conf('baseUrl'); ?>img/logo.png" alt="Logo">
+    <header>
+      <nav>
+        <ul>
+          <li><a href="<?= conf('baseUrl'); ?>">Home</a></li>
+          <li><a href="<?= conf('baseUrl'); ?>appartement">Appartements</a></li>
+          <li><a href="<?= conf('baseUrl'); ?>car">Cars</a></li>
+        </ul>
+      </nav>
+    </header>
+    <?= $this->__v_body; ?>
+  </body>
+</html>
